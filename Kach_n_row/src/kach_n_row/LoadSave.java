@@ -1,8 +1,10 @@
 package kach_n_row;
 
 import java.io.*;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
+
 
 
 public class LoadSave implements Serializable {
@@ -18,11 +20,18 @@ public class LoadSave implements Serializable {
             e.printStackTrace();
         }
         try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+
+    public void save(String file, Object object) throws IOException {
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+
                 oos.writeObject(object);
             }
             catch ( IOException ie){
                 ie.printStackTrace();
             }
+
 
                 
 
@@ -48,6 +57,18 @@ public class LoadSave implements Serializable {
             System.out.println(" Файла не существует. Проверьте правильность ввода либо создайте нового пользователя");
             return null;
         }
+
+            finally {
+                fos.close();
+
+            }
+
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+
+
     }
 
 }
