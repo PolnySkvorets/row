@@ -9,17 +9,22 @@ public class LoadSave implements Serializable {
 
     public void save(String name, Object object)  {/** метод load для сохранения объектов методом сериализации
      */
-            Files.createNewFile(new Path(name+".dat"));
 
-            FileOutputStream fos = new FileOutputStream(name + ".dat");
-            try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(name + ".dat");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
                 oos.writeObject(object);
             }
             catch ( IOException ie){
                 ie.printStackTrace();
             }
 
-                fos.close();
+                
 
 
     }
