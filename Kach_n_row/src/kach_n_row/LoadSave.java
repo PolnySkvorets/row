@@ -1,22 +1,48 @@
 package kach_n_row;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.Serializable;
+import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Path;
+
 
 public class LoadSave implements Serializable {
 
-    public void save(File file){
-        try {
-            FileOutputStream fos = new FileOutputStream(file.getAbsolutePath());
+    public void save(String name, Object object)  {/** метод load для сохранения объектов методом сериализации
+     */
+            Files.createNewFile(new Path(name+".dat"));
 
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
+            FileOutputStream fos = new FileOutputStream(name + ".dat");
+            try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+                oos.writeObject(object);
+            }
+            catch ( IOException ie){
+                ie.printStackTrace();
+            }
 
+                fos.close();
+
+
+    }
+    public Object load(String name) throws IOException {
+        if(!(new File(name + ".dat")).exists()) {
+            Object object;
+            FileInputStream fis = new FileInputStream(name + ".dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            try {
+                object = ois.readObject();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                object = null;
+            }
+            fis.close();
+            ois.close();
+
+            return object;
+        }
+        else {
+            System.out.println(" Файла не существует. Проверьте правильность ввода либо создайте нового пользователя");
+            return null;
+        }
     }
 
 }

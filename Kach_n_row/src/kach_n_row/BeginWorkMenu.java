@@ -41,6 +41,7 @@ public class BeginWorkMenu {
                     user = new UserData();
                     UserMenu.start(user);
                     //создание нового пользователя
+
                     break;
                 }
                 default: {
