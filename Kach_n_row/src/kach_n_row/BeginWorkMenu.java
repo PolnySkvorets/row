@@ -1,10 +1,24 @@
 package kach_n_row;
 import  java.io.*;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 //в данном классе находятся все методы для диалогового взаимодействия с пользователем
 
 
-public class BeginWorkMenu {
+public class BeginWorkMenu extends JFrame{
+
+   public BeginWorkMenu(){
+        super("Row and kach: Begin work menu");
+        setBounds(200,200,300,300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    JButton load;
+    JButton save;
+    JButton new_button;
+    JButton closeButton;
+
+
 
     private static UserData user;
 
@@ -12,8 +26,8 @@ public class BeginWorkMenu {
 
 
     public static void startWork() throws IOException { //метод диалогового взаимодействия с пользователем
-
-
+        BeginWorkMenu bwm = new BeginWorkMenu();
+        bwm.setVisible(true);
 
         do {
             command = null;
