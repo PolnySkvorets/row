@@ -12,7 +12,7 @@ public class LoadSave implements Serializable {
     public void save(String name, Object object)  {/** метод load для сохранения объектов методом сериализации
      */
 
-
+/*
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(name + ".dat");
@@ -32,7 +32,7 @@ public class LoadSave implements Serializable {
                 ie.printStackTrace();
             }
 
-
+*/
                 
 
 
@@ -58,15 +58,7 @@ public class LoadSave implements Serializable {
             return null;
         }
 
-            finally {
-                fos.close();
 
-            }
-
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
 
 
     }
