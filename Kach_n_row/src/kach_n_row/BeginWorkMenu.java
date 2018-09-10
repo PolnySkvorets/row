@@ -8,15 +8,37 @@ import javax.swing.*;
 
 public class BeginWorkMenu extends JFrame{
 
+
+
    public BeginWorkMenu(){
-        super("Row and kach: Begin work menu");
-        setBounds(200,200,300,300);
+
+
+       super("Row and kach: Begin work menu");
+       setBounds(500, 100, 500, 500);
+
+       JButton load;
+       JButton save;
+       JButton new_button;
+       JButton closeButton;
+       //JPanel buttonsPanel;
+       Container buttonsPanel = getContentPane();
+       load = new JButton("Load");
+       load.setBounds(220, 350, 80, 40);
+       save = new JButton("Save");
+       new_button = new JButton("New User");
+       closeButton = new JButton("Close");
+      // buttonsPanel = new JPanel();
+       buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.PAGE_AXIS));
+       buttonsPanel.add(load, BorderLayout.NORTH);
+       buttonsPanel.add(save,BorderLayout.NORTH);
+       buttonsPanel.add(new_button,BorderLayout.NORTH);
+       buttonsPanel.add(closeButton, BorderLayout.NORTH);
+
+
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    JButton load;
-    JButton save;
-    JButton new_button;
-    JButton closeButton;
+
 
 
 
@@ -29,6 +51,7 @@ public class BeginWorkMenu extends JFrame{
         BeginWorkMenu bwm = new BeginWorkMenu();
         bwm.setVisible(true);
 
+        /*
         do {
             command = null;
             System.out.println("Введите команду: ");
@@ -62,7 +85,7 @@ public class BeginWorkMenu extends JFrame{
                     break;
                 }
             }
-        } while (!command.equals("close"));
+        } while (!command.equals("close"));*/
     }
 
 

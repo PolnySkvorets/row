@@ -14,8 +14,8 @@ public class  Main extends JFrame{
 
     public static void main(String[] args) throws IOException {
 
-        Main window = new Main();
-        window.setVisible(true);
+       /* Main window = new Main();
+        window.setVisible(true);*/
         BeginWorkMenu.startWork();//в методе  main() будет только запуск метода работы с программой
         // write your code here
     }
