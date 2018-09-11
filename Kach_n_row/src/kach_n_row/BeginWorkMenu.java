@@ -20,16 +20,17 @@ public class BeginWorkMenu extends JFrame{
        JButton save;
        JButton new_button;
        JButton closeButton;
-       //JPanel buttonsPanel;
-       Container buttonsPanel = getContentPane();
+       JPanel buttonsPanel;
+       //Container buttonsPanel = getContentPane();
        load = new JButton("Load");
-       load.setBounds(220, 350, 80, 40);
+       load.setBounds(0, 0, 50, 40);
        save = new JButton("Save");
        new_button = new JButton("New User");
        closeButton = new JButton("Close");
-      // buttonsPanel = new JPanel();
-       buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.PAGE_AXIS));
-       buttonsPanel.add(load, BorderLayout.NORTH);
+       buttonsPanel = new JPanel();
+       this.getContentPane().add(buttonsPanel);
+       buttonsPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+       buttonsPanel.add(load, BorderLayout.SOUTH);
        buttonsPanel.add(save,BorderLayout.NORTH);
        buttonsPanel.add(new_button,BorderLayout.NORTH);
        buttonsPanel.add(closeButton, BorderLayout.NORTH);
@@ -38,6 +39,8 @@ public class BeginWorkMenu extends JFrame{
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+
 
 
 
